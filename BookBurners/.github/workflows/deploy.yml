@@ -3,7 +3,7 @@ name: Build and Deploy
 on:
   push:
     branches:
-      - main   # or your branch name
+      - main  # deploy whenever you push to main
 
 jobs:
   build:
@@ -13,15 +13,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # Step: Generate config.js with secret API key
       - name: Create config.js
         run: |
-          
+          mkdir -p js
           echo "const API_KEY = '${{ secrets.GOOGLE_BOOKS_API_KEY }}';" > js/config.js
 
-      # Step: Deploy to GitHub Pages
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: .
+          publish_dir: .   # publish your whole site root
