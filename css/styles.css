@@ -38,6 +38,7 @@ main {
   max-width: 1200px;
   margin: 2rem auto;
   padding: 0 1rem;
+  margin-bottom: 100px; /* Height of the footer + some spacing */
 }
 
 h2 {
@@ -57,7 +58,7 @@ p {
   overflow: auto;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
-  gap: 1rem;
+  gap: 2.5rem;
   padding-bottom: 1rem;
 }
 
@@ -85,7 +86,7 @@ p {
 
 .genre-card:hover {
   transform: scale(1.05);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  /* box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); */
   z-index: 2;
   color: white;
 }
@@ -115,12 +116,39 @@ p {
   opacity: 1;
 }
 
-/* footer {
+#clubs {
+  text-align: center;
+  margin-top: 40px;
+}
+
+#club-btn {
+  padding: 20px;
+  font-size: 1.2rem;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#club-btn:hover {
+  background-color: #555;
+}
+
+footer {
     background-color: #333;
     color: white;
     text-align: center;
-    padding: 1rem;
+    padding: 0.3rem;
     position: fixed;
     bottom: 0;
     width: 100%;
-} */
+    height: 50px;
+}
+
+
+#footer-id {
+    color: white;
+    font-size: 15px;
+    padding: 10px;
+}

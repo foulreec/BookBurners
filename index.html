@@ -5,28 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BookBurners - Book Club Community</title>
     <link rel="stylesheet" href="css/styles.css" />
-    <style>
-      /* Quick styling for book results */
-      #results .book {
-        border: 1px solid #ccc;
-        padding: 10px;
-        margin: 10px 0;
-        display: flex;
-        gap: 10px;
-        align-items: center;
-      }
-      #results img {
-        max-height: 120px;
-      }
-    </style>
   </head>
   <body>
     <header>
       <nav>
         <h1>BookBurners</h1>
         <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="books.html">Books</a></li>
+          <li><a href="html/books.html">Books</a></li>
+          <li><a href="html/clubs.html">Clubs</a></li>
           <li><a href="#discussions">Discussions</a></li>
           <li><a href="#members">Members</a></li>
         </ul>
@@ -84,21 +70,30 @@
               futuristic worlds and advanced technology.
             </p> -->
           </div>
-          <div class="genre-card" style="background-image: url('images/PrideAndPrejudice.jpg')">
+          <div
+            class="genre-card"
+            style="background-image: url('images/PrideAndPrejudice.jpg')"
+          >
             <h3>Romance</h3>
             <!-- <p>
               Immerse yourself in our collection of romance novels, where love
               stories unfold in captivating settings.
             </p> -->
           </div>
-          <div class="genre-card" style="background-image: url('images/AdventureBook.jpg')">
+          <div
+            class="genre-card"
+            style="background-image: url('images/AdventureBook.jpg')"
+          >
             <h3>Action & Adventure</h3>
             <!-- <p>
               Get ready for thrilling escapades and daring quests in our
               action and adventure book collection.
             </p> -->
           </div>
-          <div class="genre-card" style="background-image: url('images/HungerGames.jpg')">
+          <div
+            class="genre-card"
+            style="background-image: url('images/HungerGames.jpg')"
+          >
             <h3>Dystopian</h3>
             <!-- <p>
               Explore our dystopian book collection, featuring gripping tales of
@@ -107,14 +102,25 @@
           </div>
         </div>
       </section>
+
+      <section id="clubs">
+        <h2>Join a Club</h2>
+        <p>
+          Interested in joining a club? Connect with fellow book enthusiasts by
+          joining one of our many book clubs. Share your thoughts, participate
+          in discussions, and enjoy reading together.
+        </p>
+
+        <button id="club-btn">Learn More</button>
+      </section>
     </main>
 
     <footer>
-      <p>&copy; 2025 BookBurners</p>
+      <p id="footer-id">&copy; 2025 BookBurners</p>
     </footer>
 
     <!-- External JS -->
-    <script src="js/config.js"></script>
+    <script src="js/homepage.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>
