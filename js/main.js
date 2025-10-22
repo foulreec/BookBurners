@@ -35,6 +35,7 @@ function searchBooks() {
 
       if (data.items) {
         data.items.forEach((item) => {
+          // Use safe values and create elements rather than interpolating raw HTML
           const title = item.volumeInfo.title || "No title";
           const authors = item.volumeInfo.authors
             ? item.volumeInfo.authors.join(", ")
@@ -43,16 +44,43 @@ function searchBooks() {
             ? item.volumeInfo.imageLinks.thumbnail
             : "";
 
-          const bookDiv = document.createElement("div");
-          bookDiv.className = "book";
-          bookDiv.innerHTML = `
-            ${thumbnail ? `<img src="${thumbnail}" alt="${title}">` : ""}
-            <div>
-              <h3>${title}</h3>
-              <p><strong>Author(s):</strong> ${authors}</p>
-            </div>
-          `;
-          resultsDiv.appendChild(bookDiv);
+          const link = document.createElement('a');
+          // Link to the book details page with the volume id.
+          // If the current page is already inside the `html/` folder (e.g. html/books.html),
+          // use a relative path `book.html`. Otherwise use `html/book.html`.
+          const currentPath = window.location.pathname || '';
+          const inHtmlFolder = currentPath.includes('/html/');
+          link.href = inHtmlFolder
+            ? `book.html?id=${encodeURIComponent(item.id)}`
+            : `html/book.html?id=${encodeURIComponent(item.id)}`;
+          link.className = 'book-link';
+          link.rel = 'noopener';
+
+          const bookDiv = document.createElement('div');
+          bookDiv.className = 'book';
+
+          if (thumbnail) {
+            const img = document.createElement('img');
+            img.src = thumbnail;
+            img.alt = title;
+            bookDiv.appendChild(img);
+          }
+
+          const meta = document.createElement('div');
+          const h3 = document.createElement('h3');
+          h3.textContent = title;
+          const p = document.createElement('p');
+          const strong = document.createElement('strong');
+          strong.textContent = 'Author(s): ';
+          p.appendChild(strong);
+          p.appendChild(document.createTextNode(authors));
+
+          meta.appendChild(h3);
+          meta.appendChild(p);
+          bookDiv.appendChild(meta);
+
+          link.appendChild(bookDiv);
+          resultsDiv.appendChild(link);
         });
       } else {
         resultsDiv.innerHTML = "<p>No results found.</p>";
