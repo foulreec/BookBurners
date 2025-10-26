@@ -25,7 +25,7 @@ function searchBooks() {
 
   const url = `https://www.googleapis.com/books/v1/volumes?q=${encodeURIComponent(
     query
-  )}&key=AIzaSyBETZPZhtou-38NyXidhjkrGIZHe9ytHNM`;
+  )}&key=${apiKey}`;
 
   fetch(url)
     .then((response) => response.json())

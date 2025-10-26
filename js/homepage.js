@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     Array.from(bookCards).forEach(card => {
         card.addEventListener("click", () => {
             const genre = card.getAttribute("genre-card");
-            window.location.href = `html/books.html?genre=${encodeURIComponent(genre)}`;
+            window.location.href = `html/books.php?genre=${encodeURIComponent(genre)}`;
         });
     });
 
@@ -11,6 +11,13 @@ document.addEventListener("DOMContentLoaded", () => {
     if (clubBtn) {
         clubBtn.addEventListener("click", () => {
             window.location.href = 'html/clubs.html';
+        });
+    }
+
+    const loginBtn = document.getElementById("login-btn");
+    if (loginBtn) {
+        loginBtn.addEventListener("click", () => {
+            window.location.href = 'html/register.html';
         });
     }
 });
