@@ -1,3 +1,8 @@
+<?php 
+require_once '../php/config.php';
+$apikey = getenv('API_KEY');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -12,8 +17,10 @@
         <h1>BookBurners</h1>
         <ul>
           <li><a href="../index.html">Home</a></li>
-          <li><a href="books.html">Books</a></li>
+          <li><a href="books.php">Books</a></li>
           <li><a href="clubs.html">Clubs</a></li>
+          <li><a href="#discussions">Discussions</a></li>
+          <li><a href="#members">Members</a></li>
         </ul>
       </nav>
     </header>
@@ -28,7 +35,11 @@
       <p>&copy; 2025 BookBurners</p>
     </footer>
 
-    <script src="../js/config.js"></script>
+     <script>
+        // PHP to inject API key into JavaScript
+        const apiKey = "<?php echo htmlspecialchars($api_key, ENT_QUOTES); ?>";
+        console.log("API key in JS:", apiKey);
+    </script>
     <script src="../js/book.js"></script>
   </body>
 </html>

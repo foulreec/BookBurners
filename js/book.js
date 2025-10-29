@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const container = document.getElementById('book-details');
 
   if (!id) {
-    container.innerHTML = '<p>No book id provided in the URL.</p>';
+    container.innerHTML = '<p>No book id provided in the URL.</p>A';
     return;
   }
 

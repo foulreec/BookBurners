@@ -25,13 +25,43 @@ nav {
 
 nav ul {
   display: flex;
+  align-items: center;
   list-style: none;
   gap: 2rem;
+  padding: 20px;
 }
 
 nav a {
   color: white;
   text-decoration: none;
+  font-size: 15px;
+  display: inline-block;
+  padding: 0.5rem 0;
+}
+
+nav #registration-btn {
+  background-color: #555;
+  color: white;
+  border: none;
+  font-size: 15px;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+nav #registration-btn:hover {
+  background-color: #777;
+}
+
+nav #login-btn {
+  width: 40px;
+  height: 40px;
+  background-size: cover;
+  background-position: center;
+  background-color: transparent;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
 }
 
 main {
