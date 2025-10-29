@@ -51,8 +51,8 @@ function searchBooks() {
           const currentPath = window.location.pathname || '';
           const inHtmlFolder = currentPath.includes('/html/');
           link.href = inHtmlFolder
-            ? `book.html?id=${encodeURIComponent(item.id)}`
-            : `html/book.html?id=${encodeURIComponent(item.id)}`;
+            ? `book.php?id=${encodeURIComponent(item.id)}` //changed to php
+            : `html/book.php?id=${encodeURIComponent(item.id)}`; //changed to php
           link.className = 'book-link';
           link.rel = 'noopener';
 

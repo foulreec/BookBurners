@@ -36,7 +36,7 @@ h2 {
   font-size: 30px;
 }
 
-.registration-container {
+.login-container {
   background-color: #333;
   padding: 2rem 3rem;
   border-radius: 12px;
@@ -68,7 +68,7 @@ input {
   border-radius: 6px;
 }
 
-#register-btn {
+#login-btn {
   padding: 0.7rem 2rem;
   font-size: 1rem;
   cursor: pointer;
@@ -78,15 +78,9 @@ input {
   border: none;
 }
 
-#register-btn:hover {
+#login-btn:hover {
   background-color: rgba(245, 245, 245, 0.76);
   color: black;
-}
-
-#response-message {
-  margin-top: 1rem;
-  font-size: 1rem;
-  color: green;
 }
 
 footer {

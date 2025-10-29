@@ -14,10 +14,17 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    const registrationBtn = document.getElementById("registration-btn");
+    if (registrationBtn) {
+        registrationBtn.addEventListener("click", () => {
+            window.location.href = 'html/register.html';
+        });
+    }
+
     const loginBtn = document.getElementById("login-btn");
     if (loginBtn) {
         loginBtn.addEventListener("click", () => {
-            window.location.href = 'html/register.html';
+            window.location.href = 'html/login.html';
         });
     }
 });
