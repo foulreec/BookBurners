@@ -1,3 +1,8 @@
+<?php
+require_once '../php/config.php';
+$apikey = getenv('API_KEY');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,6 +40,11 @@
         <p>&copy; 2025 BookBurners</p>
     </footer>
 
+    <script>
+        // PHP to inject API key into JavaScript
+        const apiKey = "<?php echo htmlspecialchars($api_key, ENT_QUOTES); ?>";
+        console.log("API key in JS:", apiKey);
+    </script>
     <!-- External JS -->
     <script src="../js/main.js"></script>
 </body>
