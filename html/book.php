@@ -1,6 +1,5 @@
-<?php 
-require_once '../php/config.php';
-$apikey = getenv('API_KEY');
+<?php
+// Static book details page — data is loaded via client-side requests and server-side proxy endpoints.
 ?>
 
 <!DOCTYPE html>
@@ -29,17 +28,34 @@ $apikey = getenv('API_KEY');
       <section id="book-details">
         <p id="loading">Loading book details…</p>
       </section>
+      <section id="discussions-section">
+        <h2>Discussions</h2>
+        <div id="discussions-list">Loading discussions…</div>
+
+        <h3>Start a discussion</h3>
+        <form id="discussion-form">
+          <label>
+            Your name (optional)
+            <input type="text" name="author" placeholder="e.g. Jamie" />
+          </label>
+          <label>
+            Title (optional)
+            <input type="text" name="title" placeholder="Short summary" />
+          </label>
+          <label>
+            Message
+            <textarea name="content" required placeholder="Share your thoughts..."></textarea>
+          </label>
+          <button type="submit">Post discussion</button>
+        </form>
+      </section>
     </main>
 
     <footer>
       <p>&copy; 2025 BookBurners</p>
     </footer>
 
-     <script>
-        // PHP to inject API key into JavaScript
-        const apiKey = "<?php echo htmlspecialchars($api_key, ENT_QUOTES); ?>";
-        console.log("API key in JS:", apiKey);
-    </script>
     <script src="../js/book.js"></script>
+    <script src="../js/discussions.js"></script>
   </body>
 </html>
