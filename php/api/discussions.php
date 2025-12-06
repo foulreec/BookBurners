@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> dfdac98f4ebb6e9785885bcdc278d7ebd4c3fe71
 <?php
 // php/api/discussions.php
 // GET ?volumeId=... -> list discussions
@@ -23,7 +26,11 @@ function load_env_file($path) {
     return $env;
 }
 
+<<<<<<< HEAD
 $root = dirname(__DIR__, 2);
+=======
+$root = dirname(__DIR__, 1);
+>>>>>>> dfdac98f4ebb6e9785885bcdc278d7ebd4c3fe71
 $env = load_env_file($root . DIRECTORY_SEPARATOR . '.env');
 
 $dbHost = getenv('DB_HOST') ?: ($env['DB_HOST'] ?? null);
@@ -118,4 +125,8 @@ if ($method === 'POST') {
 http_response_code(405);
 echo json_encode(['error' => 'Method not allowed']);
 
+<<<<<<< HEAD
 
+=======
+?>
+>>>>>>> dfdac98f4ebb6e9785885bcdc278d7ebd4c3fe71
