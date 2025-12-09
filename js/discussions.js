@@ -31,19 +31,11 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function loadDiscussions() {
-<<<<<<< HEAD
     fetch(`../php/api/discussions.php?volumeId=${encodeURIComponent(volumeId)}`)
       .then(r => r.json())
       .then(data => {
         listContainer.innerHTML = '';
         if (!Array.isArray(data) && data.length === 0) {
-=======
-    fetch(`/php/api/discussions.php?volumeId=${encodeURIComponent(volumeId)}`)
-      .then(r => r.json())
-      .then(data => {
-        listContainer.innerHTML = '';
-        if (!Array.isArray(data) || data.length === 0) {
->>>>>>> dfdac98f4ebb6e9785885bcdc278d7ebd4c3fe71
           listContainer.innerHTML = '<p>No discussions yet. Start the first!</p>';
           return;
         }
@@ -69,11 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
         alert('Please write a message for the discussion.');
         return;
       }
-<<<<<<< HEAD
       fetch('../php/api/discussions.php', {
-=======
-      fetch('/php/api/discussions.php', {
->>>>>>> dfdac98f4ebb6e9785885bcdc278d7ebd4c3fe71
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
