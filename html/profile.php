@@ -27,8 +27,14 @@ if(!isset($_SESSION['user_id'])){
         </nav>
     </header>
 
-    <h1>Welcome, <?php echo htmlspecialchars($_SESSION['username']); ?></h1>
-    <p>Email: <?php echo htmlspecialchars($_SESSION['email']); ?></p>
+    <main>
+        <h2>Welcome, <?php echo htmlspecialchars($_SESSION['username']); ?></h2>
+        <p>Email: <?php echo htmlspecialchars($_SESSION['email']); ?></p>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 BookBurners</p>
+    </footer>
     
 </body>
 </html>
