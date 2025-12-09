@@ -16,7 +16,7 @@
       <nav>
         <h1>BookBurners</h1>
         <ul>
-          <li><a href="../index.html">Home</a></li>
+          <li><a href="../index.php">Home</a></li>
           <li><a href="books.php">Books</a></li>
           <li><a href="clubs.html">Clubs</a></li>
           <li><a href="#discussions">Discussions</a></li>
