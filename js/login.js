@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
             welcomeMessage.textContent = `Welcome back!`;
 
             setTimeout(() => {
-                window.location.replace('/index.html');
+                window.location.replace('/index.php');
                 }, 2000);
         }
         else {
