@@ -1,6 +1,10 @@
 <?php
 session_start();
 $logged_in = isset($_SESSION['user_id']);
+
+if(isset($_SESSION['user_id']) && isset($_COOKIE['remember_user'])){
+  $_SESSION['user_id'] = $_COOKIE['remember_user'];
+}
 ?>
 
 <!DOCTYPE html>

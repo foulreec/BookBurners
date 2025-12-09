@@ -33,6 +33,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
             $_SESSION['username'] = $username;
             $_SESSION['email'] = $email;
 
+            if(!empty($_POST['remember'])){
+                //30 day expiration date for cookie
+                setcookie("remember_user", $db_user_id, time() + (86400 * 30), "/", "", false, true);
+            }
+
             echo "Login successful";
         } else {
             echo "Invalid password";
