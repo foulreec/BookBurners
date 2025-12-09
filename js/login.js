@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const formData = new FormData(loginForm);
 
         try {
-            const response = await fetch('/php/login.php', {
+            const response = await fetch('../php/login.php', {
                 method: 'POST',
                 body: formData
             });
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
             welcomeMessage.textContent = `Welcome back!`;
 
             setTimeout(() => {
-                window.location.replace('/index.php');
+                window.location.replace('../index.html');
                 }, 2000);
         }
         else {
