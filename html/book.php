@@ -1,5 +1,7 @@
 <?php
 // Static book details page — data is loaded via client-side requests and server-side proxy endpoints.
+session_start();
+$logged_in = isset($_SESSION['user_id']);
 ?>
 
 <!DOCTYPE html>
@@ -10,17 +12,27 @@
     <title>Book Details</title>
     <link rel="stylesheet" href="../css/styles.css" />
     <link rel="stylesheet" href="../css/discussions.css" />
+    <script>
+      // Pass login state to JavaScript
+      window.isLoggedIn = <?php echo $logged_in ? 'true' : 'false'; ?>;
+    </script>
   </head>
   <body>
     <header>
       <nav>
-        <h1>BookBurners</h1>
+        <h1>BookBurners
+          <?php if ($logged_in): ?>
+            <button id="add-to-list-btn" style="margin-left: 1rem; padding: 0.5rem 1rem; background: #333; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.9rem; vertical-align: middle;">Add to My List</button>
+          <?php endif; ?>
+        </h1>
         <ul>
           <li><a href="../index.php">Home</a></li>
           <li><a href="books.php">Books</a></li>
           <li><a href="clubs.html">Clubs</a></li>
+          <?php if ($logged_in): ?>
+            <li><a href="my_list.php">My Reading List</a></li>
+          <?php endif; ?>
           
-          <li><a href="#members">Members</a></li>
         </ul>
       </nav>
     </header>

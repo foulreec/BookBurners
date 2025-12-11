@@ -21,8 +21,7 @@ if(!isset($_SESSION['user_id'])){
             <ul>
                 <li><a href="../index.php">Home</a></li>
                 <li><a href="/html/clubs.html">Clubs</a></li>
-                <li><a href="#discussions">Discussions</a></li>
-                <li><a href="#members">Members</a></li>
+                
             </ul>
         </nav>
     </header>

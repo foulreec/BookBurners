@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book Clubs</title>
-    <link rel="stylesheet" href="../css/clubs.css">
+    <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
     <header>
@@ -13,68 +13,55 @@
             <ul>
                 <li><a href="../index.php">Home</a></li>
                 <li><a href="books.php">Books</a></li>
-                <li><a href="#discussions">Discussions</a></li>
-                <li><a href="#members">Members</a></li>
+                
             </ul>
         </nav>
     </header>
 
-    <main class="clubs-readme">
-        <section class="hero">
-            <p class="eyebrow">Welcome to BookBurners</p>
-            <h2>Everything you need to know about our book club community.</h2>
-            <p class="lede">Discover, discuss, and connect with readers through curated books, lively clubs, and member-driven discussions.</p>
-        </section>
-
-        <section class="grid">
-            <article>
-                <h3>What is BookBurners?</h3>
-                <p>BookBurners is a community-driven platform for readers. Browse books, join clubs, and participate in discussions with people who love stories as much as you do.</p>
-            </article>
-            <article>
-                <h3>Key Features</h3>
-                <ul>
-                    <li>Browse curated book lists across genres.</li>
-                    <li>Join or explore clubs by interest.</li>
-                    <li>Jump into member-led discussions.</li>
-                    <li>Create an account and personalize your profile (including your avatar).</li>
-                </ul>
-            </article>
-            <article>
-                <h3>How to Get Started</h3>
-                <ol>
-                    <li>Create an account or sign in.</li>
-                    <li>Upload your profile picture so members recognize you.</li>
-                    <li>Browse Books and pick something new to read.</li>
-                    <li>Join a club that matches your taste and start chatting.</li>
-                </ol>
-            </article>
-            <article>
-                <h3>Accounts & Profiles</h3>
-                <p>Profiles help members know who they’re talking to. After signing in, visit your profile page to upload a profile picture and keep your info current.</p>
-            </article>
-            <article>
-                <h3>Discussions</h3>
-                <p>Use the Discussions area to share thoughts, ask questions, and recommend reads. Be respectful, spoiler-tag where needed, and keep conversations welcoming.</p>
-            </article>
-            <article>
-                <h3>Need Help?</h3>
-                <p>If you run into issues (login, uploads, or navigation), try refreshing, clearing cache, or signing out and back in. Still stuck? Reach out to the maintainer.</p>
-            </article>
-        </section>
-
-        <section class="tech">
-            <h3>Under the Hood</h3>
-            <ul>
-                <li>Frontend: HTML, CSS, vanilla JS</li>
-                <li>Backend: PHP</li>
-                <li>Sessions for auth; avatars stored in <code>images/profiles/</code> and referenced from the database</li>
-            </ul>
+    <main>
+        <section id="clubs">
+            <h2>Book Clubs by Genre</h2>
+            <p>Join a club and connect with fellow book enthusiasts. Click any genre to start or join discussions!</p>
+            
+            <div class="genre-container">
+                <div
+                  class="genre-card"
+                  data-genre="fantasy"
+                  style="background-image: url('../images/HarryPotter.jpg')">
+                  <h3>Fantasy</h3>
+                </div>
+                <div
+                  class="genre-card"
+                  data-genre="science-fiction"
+                  style="background-image: url('../images/BladeRunner.jpg')">
+                  <h3>Science Fiction</h3>
+                </div>
+                <div
+                  class="genre-card"
+                  data-genre="romance"
+                  style="background-image: url('../images/PrideAndPrejudice.jpg')">
+                  <h3>Romance</h3>
+                </div>
+                <div
+                  class="genre-card"
+                  data-genre="action-adventure"
+                  style="background-image: url('../images/AdventureBook.jpg')">
+                  <h3>Action & Adventure</h3>
+                </div>
+                <div
+                  class="genre-card"
+                  data-genre="dystopian"
+                  style="background-image: url('../images/HungerGames.jpg')">
+                  <h3>Dystopian</h3>
+                </div>
+            </div>
         </section>
     </main>
 
     <footer>
         <p>&copy; 2025 BookBurners</p>
     </footer>
+    
+    <script src="../js/discussions.js"></script>
 </body>
 </html>

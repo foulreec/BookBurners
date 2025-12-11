@@ -51,10 +51,13 @@ if(isset($_SESSION['user_id']) && isset($_COOKIE['remember_user'])){
         </h1>
       </div>
       <ul>
-        <li><a href="html/books.php">Books</a></li>
+        <li><a href="html/books.php">Search for Books</a></li>
         <li><a href="html/clubs.html">Clubs</a></li>
-        <li><a href="#discussions">Discussions</a></li>
-        <li><a href="#members">Members</a></li>
+        <?php if ($logged_in): ?>
+          <li><a href="html/my_list.php">My Reading List</a></li>
+        <?php endif; ?>
+        <!-- <li><a href="#discussions">Discussions</a></li>
+        <li><a href="#members">Members</a></li> -->
 
         <?php if($logged_in): ?>
           <li><button id="registration-btn" style="display: none;">Sign Up</button></li>
@@ -91,64 +94,6 @@ if(isset($_SESSION['user_id']) && isset($_COOKIE['remember_user'])){
       </div>
     </section>
 
-    <section id="Books">
-      <h2>Our Book Collection</h2>
-      <p>
-        Discover a wide range of books across various genres, including
-        fiction, non-fiction, fantasy, and more. Whether you're looking for
-        your next great read or seeking recommendations, our collection has
-        something for everyone.
-      </p>
-
-      <div class="genre-container">
-        <div
-          class="genre-card"
-          style="background-image: url('images/HarryPotter.jpg')">
-          <h3>Fantasy</h3>
-          <!-- <p>
-              Explore our collection of fantasy books, from epic tales to
-              magical adventures.
-            </p> -->
-        </div>
-        <div
-          class="genre-card"
-          style="background-image: url('images/BladeRunner.jpg')">
-          <h3>Science Fiction</h3>
-          <!-- <p>
-              Delve into our collection of science fiction books, featuring
-              futuristic worlds and advanced technology.
-            </p> -->
-        </div>
-        <div
-          class="genre-card"
-          style="background-image: url('images/PrideAndPrejudice.jpg')">
-          <h3>Romance</h3>
-          <!-- <p>
-              Immerse yourself in our collection of romance novels, where love
-              stories unfold in captivating settings.
-            </p> -->
-        </div>
-        <div
-          class="genre-card"
-          style="background-image: url('images/AdventureBook.jpg')">
-          <h3>Action & Adventure</h3>
-          <!-- <p>
-              Get ready for thrilling escapades and daring quests in our
-              action and adventure book collection.
-            </p> -->
-        </div>
-        <div
-          class="genre-card"
-          style="background-image: url('images/HungerGames.jpg')">
-          <h3>Dystopian</h3>
-          <!-- <p>
-              Explore our dystopian book collection, featuring gripping tales of
-              survival in challenging worlds.
-            </p> -->
-        </div>
-      </div>
-    </section>
-
     <section id="clubs">
       <h2>Join a Club</h2>
       <p>
@@ -168,6 +113,7 @@ if(isset($_SESSION['user_id']) && isset($_COOKIE['remember_user'])){
   <!-- External JS -->
   <script src="js/homepage.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/discussions.js"></script>
 </body>
 
 </html>

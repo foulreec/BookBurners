@@ -1,6 +1,8 @@
 <?php
+session_start();
 require_once '../php/config.php';
 $apikey = getenv('API_KEY');
+$logged_in = isset($_SESSION['user_id']);
 ?>
 
 <!DOCTYPE html>
@@ -16,10 +18,13 @@ $apikey = getenv('API_KEY');
         <nav>
             <h1>BookBurners</h1>
             <ul>
-                <li><a href="/index.php">Home</a></li>
-                <li><a href="/html/clubs.html">Clubs</a></li>
-                <li><a href="#discussions">Discussions</a></li>
-                <li><a href="#members">Members</a></li>
+                <li><a href="../index.php">Home</a></li>
+                <li><a href="../html/clubs.html">Clubs</a></li>
+                <?php if ($logged_in): ?>
+                    <li><a href="my_list.php">My Reading List</a></li>
+                <?php endif; ?>
+                <!-- <li><a href="#discussions">Discussions</a></li>
+                <li><a href="#members">Members</a></li> -->
             </ul>
         </nav>
     </header>

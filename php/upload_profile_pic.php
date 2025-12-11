@@ -6,6 +6,7 @@ session_start();
 
 header('Content-Type: application/json');
 
+// Check authentication
 if(!isset($_SESSION['user_id'])){
     http_response_code(401);
     echo json_encode(['error' => 'Not authenticated']);
@@ -23,13 +24,13 @@ if(!isset($_SESSION['user_id'])){
 }
 
 $user_id = intval($_SESSION['user_id']);
-
+// Only accept POST
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(405);
     echo json_encode(['error' => 'Method not allowed']);
     exit;
 }
-
+// Check if file uploaded
 if (!isset($_FILES['profile_pic']) || $_FILES['profile_pic']['error'] !== UPLOAD_ERR_OK) {
     http_response_code(400);
     echo json_encode(['error' => 'No file uploaded or upload error']);
@@ -44,7 +45,7 @@ if ($file['size'] > 3 * 1024 * 1024) {
     echo json_encode(['error' => 'File too large']);
     exit;
 }
-
+// Validate file type
 $finfo = finfo_open(FILEINFO_MIME_TYPE);
 $mime = finfo_file($finfo, $file['tmp_name']);
 finfo_close($finfo);
@@ -71,7 +72,7 @@ if (!move_uploaded_file($file['tmp_name'], $target)) {
     exit;
 }
 
-// Optionally: set permissions
+
 @chmod($target, 0644);
 
 $public_path = 'images/profiles/' . $user_id . '.' . $ext;
@@ -79,6 +80,7 @@ $public_path = 'images/profiles/' . $user_id . '.' . $ext;
 // Update session to use new profile path
 $_SESSION['profile_pic'] = $public_path;
 // Persist avatar filename in DB (users.avatar)
+// Connect to database
 $conn = new mysqli($servername, $username, $password, $db_name);
 if ($conn->connect_error) {
     // still return success for upload but warn in log
@@ -86,6 +88,7 @@ if ($conn->connect_error) {
     echo json_encode(['success' => true, 'path' => $public_path]);
     exit;
 }
+// Update avatar path
 
 $stmt = $conn->prepare("UPDATE users SET avatar = ? WHERE user_id = ?");
 if (!$stmt) {
@@ -94,7 +97,7 @@ if (!$stmt) {
     $conn->close();
     exit;
 }
-
+// Bind parameters and execute
 if (!$stmt->bind_param('si', $public_path, $user_id)) {
     error_log('Bind param failed: ' . $stmt->error);
     echo json_encode(['success' => false, 'error' => 'Database bind error: ' . $stmt->error]);
@@ -102,7 +105,7 @@ if (!$stmt->bind_param('si', $public_path, $user_id)) {
     $conn->close();
     exit;
 }
-
+// Execute statement
 if (!$stmt->execute()) {
     error_log('Execute failed: ' . $stmt->error);
     echo json_encode(['success' => false, 'error' => 'Database execute error: ' . $stmt->error]);
@@ -110,7 +113,7 @@ if (!$stmt->execute()) {
     $conn->close();
     exit;
 }
-
+// Clean up
 $stmt->close();
 $conn->close();
 
