@@ -19,7 +19,7 @@
           <li><a href="../index.php">Home</a></li>
           <li><a href="books.php">Books</a></li>
           <li><a href="clubs.html">Clubs</a></li>
-          <li><a href="#discussions">Discussions</a></li>
+          
           <li><a href="#members">Members</a></li>
         </ul>
       </nav>

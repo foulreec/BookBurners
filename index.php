@@ -20,7 +20,36 @@ if(isset($_SESSION['user_id']) && isset($_COOKIE['remember_user'])){
 <body>
   <header>
     <nav>
-      <h1>BookBurners</h1>
+      <div class="nav-left">
+        <h1>
+          BookBurners
+          <?php if ($logged_in): ?>
+            <?php
+              // Prefer avatar path from session (stored on login/upload), fall back to file checks, then placeholder
+              $profile_path = 'images/profile_placeholder.png';
+              if (!empty($_SESSION['profile_pic'])) {
+                  $profile_path = $_SESSION['profile_pic'];
+              } elseif (isset($_SESSION['user_id'])) {
+                $uid = intval($_SESSION['user_id']);
+                $jpg = __DIR__ . "/images/profiles/{$uid}.jpg";
+                $png = __DIR__ . "/images/profiles/{$uid}.png";
+                if (file_exists($jpg)) {
+                  $profile_path = "images/profiles/{$uid}.jpg";
+                } elseif (file_exists($png)) {
+                  $profile_path = "images/profiles/{$uid}.png";
+                }
+              }
+            ?>
+            <a href="html/profile.php" id="login-btn">
+              <img src="<?php echo $profile_path; ?>" alt="profile-icon" class="profile-icon-h1">
+            </a>
+          <?php else: ?>
+            <a href="html/login.html" id="login-btn">
+              <img src="images/profile_placeholder.png" alt="login-icon" class="profile-icon-h1">
+            </a>
+          <?php endif; ?>
+        </h1>
+      </div>
       <ul>
         <li><a href="html/books.php">Books</a></li>
         <li><a href="html/clubs.html">Clubs</a></li>
@@ -34,19 +63,7 @@ if(isset($_SESSION['user_id']) && isset($_COOKIE['remember_user'])){
         <?php endif; ?>
 
         <?php if ($logged_in): ?>
-          <li>
-            <a href="html/profile.php" id="login-btn">
-              <img src="images/profile_placeholder.png" alt="profile-icon" class="profile-icon">
-            </a>
-          </li>
           <li><a href="php/logout.php">Logout</a></li>
-
-        <?php else: ?>
-          <li>
-            <a href="html/login.html" id="login-btn">
-              <img src="images/profile_placeholder.png" alt="login-icon" class="profile-icon">
-            </a>
-          </li>
         <?php endif; ?>
       </ul>
 

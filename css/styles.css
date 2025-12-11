@@ -28,6 +28,18 @@ nav {
   margin: 0 auto;
 }
 
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+h1 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
 nav ul {
   display: flex;
   align-items: center;
@@ -59,15 +71,25 @@ nav #registration-btn:hover {
 }
 
 nav #login-btn {
-  width: 40px;
-  height: 40px;
-  background-size: cover;
-  background-position: center;
   background-color: transparent;
   border: none;
-  border-radius: 50%;
   cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 24px;
+  width: 24px;
 }
+
+nav #login-btn img {
+  height: 24px;
+  width: 24px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid white;
+}
+
 
 main {
   max-width: 1200px;
@@ -187,4 +209,12 @@ footer {
     color: white;
     line-height: 25.6px;
     text-align: center;
+}
+
+.profile-icon {
+    width: 4px;       /* or 32px, whatever you want */
+    height: 4px;
+    object-fit: cover;
+    border-radius: 50%;
+    display: inline-block;
 }
